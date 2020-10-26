@@ -12,6 +12,10 @@ html{
     font-size: 62.5%;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body{
     font-family: 'protogrotesk-light', sans-serif;
 }
@@ -208,6 +212,7 @@ footer p{
     color: #ffffff;
     font-size: 1.5rem;
     text-align: center;
+    font-family: 'protogrotesk-bold', sans-serif;
 }
 
 @media (min-width: 768px){

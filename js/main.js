@@ -1,4 +1,3 @@
-
 // LOADER 
 $( window ).on('load', function() {
     $('.se-pre-con').fadeOut('slow');
@@ -23,7 +22,7 @@ jQuery(document).ready(function () {
           + '" which has the code: '
           + code.toUpperCase();
 
-        console.log(message);
+        console.log(message); // Do Something
       }
     });
 
@@ -43,7 +42,7 @@ jQuery(document).ready(function () {
           + '" which has the code: '
           + code.toUpperCase();
 
-        console.log(message);
+        console.log(message); // Do Something
       }
     });
 
@@ -150,7 +149,7 @@ jQuery(document).ready(function () {
             //     controls: false
             // },
             // dom:              'lftipr',            
-            "scrollY":        "70vh",
+            "scrollY":        "60vh",
             "scrollX":        true,
             "scrollCollapse": true,
             "paging":         false

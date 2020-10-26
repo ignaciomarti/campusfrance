@@ -1,4 +1,13 @@
+
+// LOADER 
+$( window ).on('load', function() {
+    $('.se-pre-con').fadeOut('slow');
+});
+
+
 jQuery(document).ready(function () {
+
+    // MAPA ARGENTINA
     jQuery('#argentineMap').vectorMap({
       map: 'argentina_en',
       backgroundColor: 'transparent',
@@ -17,6 +26,8 @@ jQuery(document).ready(function () {
         console.log(message);
       }
     });
+
+    // MAPA FRANCIA
     jQuery('#franceMap').vectorMap({
       map: 'france_fr',
       backgroundColor: 'transparent',
@@ -35,6 +46,8 @@ jQuery(document).ready(function () {
         console.log(message);
       }
     });
+
+    // SELECTS FORMULARIOS
     $('.argentineInstitutions').select2({
         placeholder: 'Institución argentina',
         allowClear: true,
@@ -78,8 +91,12 @@ jQuery(document).ready(function () {
         width: '100%',
     });
 
+
+    // CAMBIO DE MAPA
     $('#argentineMap').show();
     $('#franceMap').hide();
+    $('#dataTable').hide();
+    $('.change-view').removeClass('d-flex').hide();
     $('#argentineFlag').on('click', function() {
       $('#franceMap').hide();
       $('#provinceInfo').html('');
@@ -95,6 +112,7 @@ jQuery(document).ready(function () {
       $('#argentineFlag').removeClass('selected');
    })
 
+   // SELECT DE PROVINCIAS ARGENTINAS
   $.get('https://apis.datos.gob.ar/georef/api/provincias', function(data){
       let provinces = []
       $.each(data.provincias, function(i,province) {
@@ -107,6 +125,7 @@ jQuery(document).ready(function () {
       });
   });
 
+  // SELECT DE REGIONES FRANCESAS
   $.get('https://geo.api.gouv.fr/regions', function(data){
       let regions = [];
       $.each(data, function(i,region) {
@@ -119,4 +138,38 @@ jQuery(document).ready(function () {
       });
   });
 
+  // FORM ON SUBMIT
+    $('.filter-form form').on('submit', function(event) {
+        event.preventDefault();
+        $('.change-view').addClass('d-flex').show();
+        $('#maps').hide();
+        $('#section-datatable').show();
+        $('#dataTable').show();
+        $('#dataTable').DataTable({
+            // searchPanes: {
+            //     controls: false
+            // },
+            // dom:              'lftipr',            
+            "scrollY":        "70vh",
+            "scrollX":        true,
+            "scrollCollapse": true,
+            "paging":         false
+        });
+    });
+
+    // CHANGE VIEW
+    $('.datatable-container').show();
+    $('.individual-info-container').removeClass('d-flex').hide();
+    $('#view-table').on('click', function() {
+        $(this).addClass('selected');
+        $('#view-individual').removeClass('selected');
+        $('.datatable-container').show();
+        $('.individual-info-container').removeClass('d-flex').hide();
+    })
+    $('#view-individual').on('click', function() {
+        $(this).addClass('selected');
+        $('#view-table').removeClass('selected');
+        $('.individual-info-container').addClass('d-flex').show();
+        $('.datatable-container').hide();
+    })
   });

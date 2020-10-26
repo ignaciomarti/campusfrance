@@ -1,0 +1,39 @@
+/*
+	Copyright (C) Production Type
+	This software is the property of Production Type.
+	Your right to access and use this software is subject to the
+	applicable License Agreement, or Terms of Service, that exists
+	between you and Production Type. If no such agreement exists,
+	you may not access or use this software for any purpose.
+	This software may only be hosted at the locations specified in
+	the applicable License Agreement or Terms of Service, and only
+	for the purposes expressly set forth therein. You may not copy,
+	modify, convert, create derivative works from or distribute this
+	software in any way, or make it accessible to any third party,
+	without first obtaining the written permission of Production Type.
+	For more information, please visit us at www.productiontype.com
+*/
+@font-face {
+font-family: 'protogrotesk-bold';
+    src: url('protogroteskweb-bold.eot');
+    src: url('protogroteskweb-bold.eot?#iefix') format('embedded-opentype'),
+         url('protogroteskweb-bold.woff') format('woff');
+}
+@font-face {
+font-family: 'protogrotesk-extralight';
+    src: url('protogroteskweb-extralight.eot');
+    src: url('protogroteskweb-extralight.eot?#iefix') format('embedded-opentype'),
+         url('protogroteskweb-extralight.woff') format('woff');
+}
+@font-face {
+font-family: 'protogrotesk-light';
+    src: url('protogroteskweb-light.eot');
+    src: url('protogroteskweb-light.eot?#iefix') format('embedded-opentype'),
+         url('protogroteskweb-light.woff') format('woff');
+}
+@font-face {
+font-family: 'protogrotesk-regular';
+    src: url('protogroteskweb-regular.eot');
+    src: url('protogroteskweb-regular.eot?#iefix') format('embedded-opentype'),
+         url('protogroteskweb-regular.woff') format('woff');
+}

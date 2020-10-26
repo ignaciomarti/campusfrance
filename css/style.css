@@ -1,0 +1,199 @@
+@import "fonts/protogrotesk.css";
+
+:root{
+    --main-color: #1c92d0;
+    --secondary-color: #e10811;
+    --color-left-bar: #0075ff;
+    --color-left-bar2: #ffffff;
+    --color-right-bar: #e10811;
+}
+/************* GENERALES **************/
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: 'protogrotesk-light', sans-serif;
+}
+
+h1{
+    font-size: 2.5rem;
+    font-family: 'protogrotesk-bold', sans-serif;
+    color: #666666;
+}
+
+h2{
+    font-size: 2.2rem;
+}
+
+h3{
+    font-size: 1.8rem;
+}
+
+h4{
+    font-size: 1.5rem;
+}
+
+p{
+    font-size: 1.3rem;
+}
+
+img{
+    max-width: 100%;
+}
+
+a{
+    text-decoration: none;
+}
+/********* HEADER **********/
+header{
+    background-color: var(--main-color);
+    position: relative;
+}
+
+header img{
+    width: 35%;
+    margin: 2.5rem 0;
+}
+
+/* BARRAS */
+@media (min-width: 768px) and (max-width: 992px){
+    div.left-bar::after{
+        content: '';
+        background-color: var(--color-left-bar);
+        position: absolute;
+        top: -10rem;
+        left: -5rem;
+        height: 30rem;
+        width: 10rem;
+        transform: rotate(-45deg);
+    }
+    div.left-bar2::after{
+        content: '';
+        background-color: var(--color-left-bar2);
+        position: absolute;
+        top: -10rem;
+        left: -5rem;
+        height: 30rem;
+        width: 10rem;
+        transform: rotate(-80deg);
+    }
+    div.right-bar::after{
+        content: '';
+        background-color: var(--color-right-bar);
+        position: absolute;
+        top: -10rem;
+        right: -5rem;
+        height: 30rem;
+        width: 10rem;
+        transform: rotate(45deg);
+    }
+    header img{
+        margin: 0;
+    }
+}
+
+@media (min-width: 992.01px){
+    div.left-bar::after{
+        content: '';
+        background-color: var(--color-left-bar);
+        position: absolute;
+        top: -10rem;
+        left: 0rem;
+        height: 40rem;
+        width: 10rem;
+        transform: rotate(-45deg);
+        z-index: 10;
+    }
+    div.left-bar2::after{
+        content: '';
+        background-color: var(--color-left-bar2);
+        position: absolute;
+        top: 0rem;
+        left: 0rem;
+        height: 25rem;
+        width: 10rem;
+        transform: rotate(-80deg);
+        z-index: 5;
+    }
+    div.right-bar::after{
+        content: '';
+        background-color: var(--color-right-bar);
+        position: absolute;
+        top: -10rem;
+        right: 0rem;
+        height: 40rem;
+        width: 10rem;
+        transform: rotate(45deg);
+    }
+    header img{
+        margin: 0;
+    }
+}
+
+/************ MAIN ************/
+
+main div.main-container{
+    padding-bottom: 4rem;
+    margin-top: 8rem;
+}
+
+/* FORM FILTER */
+.filter-form{
+    position: relative;
+}
+.filter-form form::before{
+    content: '';
+    position: absolute;
+    background-color: var(--main-color);
+    left: -5px;
+    height: 100%;
+    width: .75rem;
+}
+
+span.select2-selection{
+    border: 0!important;
+    border-bottom: 1px solid #88888875!important;
+    border-radius: 0!important;
+    font-size: 1.3rem!important;
+}
+span.select2-selection__rendered{
+    color: var(--main-color)!important;
+    font-family: 'protogrotesk-bold', sans-serif;
+}
+
+.container-card-form{
+    border: none;
+}
+
+.flag{
+    width: 2.5rem;
+    border-bottom: 1px solid #88888875!important;
+}
+
+/************ MAP **************/
+#provinceInfo{
+    font-family: 'protogrotesk-bold';
+    color: var(--secondary-color);
+}
+
+section.map .filter-flags-map .flag-filter{
+    width: 4rem;
+}
+section.map .filter-flags-map .flag-filter:hover{
+    cursor: pointer;
+}
+section.map .filter-flags-map .flag-filter.selected{
+    padding-bottom: 2px;
+    border-bottom: 2px solid #888888;
+}
+/************ FOOTER ************/
+footer{
+    background-color: var(--main-color);
+    height: 10vh;
+}
+
+footer p{
+    color: #ffffff;
+    font-size: 1.5rem;
+}

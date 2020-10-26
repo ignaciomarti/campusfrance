@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<meta http-equiv='X-UA-Compatible' content='ie=edge'>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqvmap/1.5.1/jqvmap.min.css" integrity="sha512-RPxGl20NcAUAq1+Tfj8VjurpvkZaep2DeCgOfQ6afXSEgcvrLE6XxDG2aacvwjdyheM/bkwaLVc7kk82+mafkQ==" crossorigin="anonymous" />
+<link rel="stylesheet" href="./css/normalize.css">
+<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css' integrity='sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt' crossorigin='anonymous'>
+<link rel="stylesheet" href="./css/style.css">
+<title>CampusFrance</title>
+</head>
+<body>
+<header>
+    <div class="left-bar"></div>
+    <div class="left-bar2"></div>
+    <div class="right-bar"></div>
+    <div class="container d-flex justify-content-center">
+        <img src="./img/logo-campus.svg" alt="Logo de Campus France">
+        <img src="./img/logo-ifa.svg" alt="Logo de Campus France">
+    </div>
+</header>
+
+<main>
+    <div class="container main-container">
+
+        <div class="container-title">
+            <h1>Catálogos de Convenios e Intercambios</h1>
+            <p>Realiza la búsqueda de convenios e intercambios con los filtros o con los mapas</p>
+        </div>
+    
+        <div class="container-filters row mt-5">
+            <section class="filter-form col-12 col-md-5">
+                <form action="#" method="get">
+                    <div class="form-group d-flex mb-5">
+                        <img src="./img/icon-argentina.svg" class="flag">
+                        <select class="argentineInstitutions" name="argentineInstitutions">
+                            <option></option>
+                            <option value="BA">Buenos Aires</option>
+                            <option value="sfe">Santa Fé</option>
+                        </select>
+                    </div>
+                    <div class="form-group d-flex mb-5">
+                        <img src="./img/icon-argentina.svg" class="flag">
+                        <select class="argentineProvinces" name="argentineProvinces">
+                            <option></option>
+                            <option value="BA">Buenos Aires</option>
+                            <option value="sfe">Santa Fé</option>
+                        </select>
+                    </div>
+                    <div class="form-group d-flex mb-5">
+                        <img src="./img/icon-francia.svg" class="flag">
+                        <select class="frenceInstitutions" name="frenceInstitutions">
+                            <option></option>
+                            <option value="BA">Buenos Aires</option>
+                            <option value="sfe">Santa Fé</option>
+                        </select>
+                    </div>
+                    <div class="form-group d-flex mb-5">
+                        <img src="./img/icon-francia.svg" class="flag">
+                        <select class="franceRegions" name="franceRegions">
+                            <option></option>
+                            <option value="BA">Buenos Aires</option>
+                            <option value="sfe">Santa Fé</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-5">
+                        <select class="movilityType" name="movilityType">
+                            <option></option>
+                            <option value="1">Letras e Idiomas</option>
+                            <option value="2">Arqueología</option>
+                            <option value="3">Artes</option>
+                            <option value="4">Educación</option>
+                            <option value="5">Filosofía</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-5">
+                        <select class="branch" name="branch">
+                            <option></option>
+                            <option value="1">Letras e Idiomas</option>
+                            <option value="2">Arqueología</option>
+                            <option value="3">Artes</option>
+                            <option value="4">Educación</option>
+                            <option value="5">Filosofía</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-5">
+                        <select class="discipline" name="discipline">
+                            <option></option>
+                            <option value="1">Letras e Idiomas</option>
+                            <option value="2">Arqueología</option>
+                            <option value="3">Artes</option>
+                            <option value="4">Educación</option>
+                            <option value="5">Filosofía</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-5">
+                        <select class="program" name="program">
+                            <option></option>
+                            <option value="1">Letras e Idiomas</option>
+                            <option value="2">Arqueología</option>
+                            <option value="3">Artes</option>
+                            <option value="4">Educación</option>
+                            <option value="5">Filosofía</option>
+                        </select>
+                    </div>
+                    <button href="#" class="btn btn-primary">Buscar</button>
+                </form>
+            </section>
+
+            <section class="col-12 col-md-7 map">
+                <div>
+                    <p class="d-block text-center" id="provinceInfo"></p>
+                </div>
+                <div id="argentineMap" style="width: 100%; height: 80vh;"></div>
+                <div id="franceMap" style="width: 100%; height: 80vh;"></div>
+
+                <div class="filter-flags-map d-flex justify-content-center mt-5">
+                    <img id="argentineFlag" class="flag-filter selected mr-3" src="./img/icon-argentina.svg" alt="Filtrar por Argentina">
+                    <img id="franceFlag" class="flag-filter ml-3" src="./img/icon-francia.svg" alt="Filtrar por Francia">
+                </div>
+            </section>
+        </div>
+    </div>
+    <img src="./img/campus-back.png" class="d-block" alt="">
+</main>
+
+<footer>
+    <div class="container">
+        <p class="pt-3">Copyright Campus France Argentine 2020</p>
+    </div>
+</footer>
+
+<script src='https://code.jquery.com/jquery-3.4.1.slim.min.js' integrity='sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n' crossorigin='anonymous'></script>
+<script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js' integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo' crossorigin='anonymous'></script>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js' integrity='sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P' crossorigin='anonymous'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqvmap/1.5.1/jquery.vmap.min.js" integrity="sha512-Zk7h8Wpn6b9LpplWXq1qXpnzJl8gHPfZFf8+aR4aO/4bcOD5+/Si4iNu9qE38/t/j1qFKJ08KWX34d2xmG0jrA==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="./js/jquery.vmap.argentina.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/jquery.vmap.france.js" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+<script>
+    jQuery(document).ready(function () {
+      jQuery('#argentineMap').vectorMap({
+        map: 'argentina_en',
+        backgroundColor: 'transparent',
+        enableZoom: false,
+        showTooltip: true,
+        color: '#1c92d0',
+        hoverColor: '#e10811',
+        selectedColor: '#e10811',
+        onRegionClick: function (element, code, region) {
+            $('#provinceInfo').html(region + ' (40)');
+          var message = 'You clicked "'
+            + region
+            + '" which has the code: '
+            + code.toUpperCase();
+
+          console.log(message);
+        }
+      });
+      jQuery('#franceMap').vectorMap({
+        map: 'france_fr',
+        backgroundColor: 'transparent',
+        enableZoom: false,
+        showTooltip: true,
+        color: '#1c92d0',
+        hoverColor: '#e10811',
+        selectedColor: '#e10811',
+        onRegionClick: function (element, code, region) {
+            $('#provinceInfo').html(region + ' (40)');
+          var message = 'You clicked "'
+            + region
+            + '" which has the code: '
+            + code.toUpperCase();
+
+          console.log(message);
+        }
+      });
+      $('.argentineInstitutions').select2({
+          placeholder: 'Institución argentina',
+          allowClear: true,
+          width: '100%',
+      });
+      $('.argentineProvinces').select2({
+          placeholder: 'Provincia argentina',
+          allowClear: true,
+          width: '100%',
+      });
+      $('.frenceInstitutions').select2({
+          placeholder: 'Institución francesa',
+          allowClear: true,
+          width: '100%',
+      });
+      $('.franceRegions').select2({
+          placeholder: 'Región francesa',
+          allowClear: true,
+          width: '100%',
+      });
+      $('.movilityType').select2({
+          placeholder: 'Tipo de Movilidad',
+          allowClear: true,
+          width: '100%',
+      });
+      $('.branch').select2({
+          placeholder: 'Rama',
+          allowClear: true,
+          width: '100%',
+      });
+      $('.discipline').select2({
+          placeholder: 'Disciplina',
+          allowClear: true,
+          width: '100%',
+      });
+      $('.program').select2({
+          placeholder: 'Programa',
+          allowClear: true,
+          width: '100%',
+      });
+
+      $('#argentineMap').show();
+      $('#franceMap').hide();
+      $('#argentineFlag').on('click', function() {
+        $('#franceMap').hide();
+        $('#provinceInfo').html('');
+        $('#argentineMap').show();
+        $(this).addClass('selected');
+        $('#franceFlag').removeClass('selected');
+      })
+     $('#franceFlag').on('click', function() {
+        $('#argentineMap').hide();
+        $('#provinceInfo').html('');
+        $('#franceMap').show();
+        $(this).addClass('selected');
+        $('#argentineFlag').removeClass('selected');
+     })
+    });
+</script>
+</body>
+</html>

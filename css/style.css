@@ -52,7 +52,7 @@ header{
 }
 
 header img{
-    width: 35%;
+    width: 30%;
     margin: 2.5rem 0;
 }
 
@@ -109,9 +109,9 @@ header img{
         content: '';
         background-color: var(--color-left-bar2);
         position: absolute;
-        top: 0rem;
+        top: -10rem;
         left: 0rem;
-        height: 25rem;
+        height: 35rem;
         width: 10rem;
         transform: rotate(-80deg);
         z-index: 5;
@@ -138,19 +138,29 @@ main div.main-container{
     margin-top: 8rem;
 }
 
+.container-title p{
+    font-size: 1.5rem;
+    color: #888888;
+}
+
 /* FORM FILTER */
 .filter-form{
     position: relative;
 }
-.filter-form form::before{
-    content: '';
-    position: absolute;
-    background-color: var(--main-color);
-    left: -5px;
-    height: 100%;
-    width: .75rem;
+@media (min-width: 768px){
+    .filter-form form::before{
+        content: '';
+        position: absolute;
+        background-color: var(--main-color);
+        left: -5px;
+        height: 100%;
+        width: .75rem;
+    }
 }
-
+.filter-form button.form-button{
+    font-size: 1.5rem;
+    padding: .7rem 1rem;
+}
 span.select2-selection{
     border: 0!important;
     border-bottom: 1px solid #88888875!important;
@@ -196,4 +206,11 @@ footer{
 footer p{
     color: #ffffff;
     font-size: 1.5rem;
+    text-align: center;
+}
+
+@media (min-width: 768px){
+    footer p{
+        text-align: left;
+    }
 }

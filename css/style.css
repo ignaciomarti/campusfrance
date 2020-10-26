@@ -52,8 +52,8 @@ header{
 }
 
 header img{
-    width: 30%;
-    margin: 2.5rem 0;
+    width: 35%;
+    margin: .5rem 0;
 }
 
 /* BARRAS */
@@ -126,9 +126,10 @@ header img{
         width: 10rem;
         transform: rotate(45deg);
     }
-    header img{
+    /* header img{
+        width: 30%;
         margin: 0;
-    }
+    } */
 }
 
 /************ MAIN ************/

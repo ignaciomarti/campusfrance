@@ -163,7 +163,9 @@ jQuery(document).ready(function () {
             // searchPanes: {
             //     controls: false
             // },
-            // dom:              'lftipr',            
+            // dom:              'lftipr',   
+            "searching":      false,
+            "info":           false,         
             "scrollY":        "60vh",
             "scrollX":        true,
             "scrollCollapse": true,

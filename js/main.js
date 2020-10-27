@@ -159,11 +159,7 @@ jQuery(document).ready(function () {
         $('#maps').hide();
         $('#section-datatable').show();
         $('#dataTable').show();
-        $('#dataTable').DataTable({
-            // searchPanes: {
-            //     controls: false
-            // },
-            // dom:              'lftipr',   
+        let table = $('#dataTable').DataTable({
             "searching":      false,
             "info":           false,         
             "scrollY":        "60vh",
@@ -171,28 +167,28 @@ jQuery(document).ready(function () {
             "scrollCollapse": true,
             "paging":         false
         });
+        $('.results-quantity-number').html('1/'+table.rows().count())
     });
 
     // CHANGE VIEW
     $('.datatable-container').show();
     $('.individual-info-container').removeClass('d-flex').hide();
+    $('.results-quantity').hide()
     $('#view-table').on('click', function() {
         $(this).addClass('selected');
         $('#view-individual').removeClass('selected');
         $('.datatable-container').show();
         $('.individual-info-container').removeClass('d-flex').hide();
+        $('.results-quantity').hide()
     })
     $('#view-individual').on('click', function() {
         $(this).addClass('selected');
         $('#view-table').removeClass('selected');
         $('.individual-info-container').addClass('d-flex').show();
         $('.datatable-container').hide();
+        $('.results-quantity').show()
     })
-    // $('.carousel-info-prev, .carousel-info-next').on('click', function() {
-    //     if () {
-            
-    //     } else if (){
-            
-    //     }
-    // })
+    $('.carousel-info-prev').on('click', function() {
+        // Do Something
+    })
   });

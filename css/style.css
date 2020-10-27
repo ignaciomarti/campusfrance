@@ -209,6 +209,11 @@ span.select2-selection__rendered{
 }
 
 /************ MAP **************/
+.carousel-map-prev .flecha, .carousel-map-next .flecha, .carousel-info-prev .flecha, .carousel-info-next .flecha{
+    width: 2.5rem;
+    cursor: pointer;
+}
+
 #provinceInfo{
     font-family: 'protogrotesk-bold';
     font-size: 1.8rem;
@@ -218,13 +223,16 @@ span.select2-selection__rendered{
 section.map .filter-flags-map .flag-filter{
     width: 4rem;
 }
+
 section.map .filter-flags-map .flag-filter:hover{
     cursor: pointer;
 }
+
 section.map .filter-flags-map .flag-filter.selected, .change-view i.selected{
     padding-bottom: 2px;
     border-bottom: 2px solid #888888;
 }
+
 /************ FOOTER ************/
 footer{
     background-color: var(--main-color);

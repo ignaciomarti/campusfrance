@@ -321,6 +321,10 @@
                     </div>
 
                     <div class="individual-info-container d-flex justify-content-center">
+                        <a class="carousel-info-prev carousel-control-prev" role="button" data-slide="prev">
+                            <img class="flecha" src="./img/flecha-izq-gris.png" alt="ver anterior">
+                        </a>
+
                         <div class="card shadow">
                             <div class="card-header">
                                 <img src="./img/logo-campus.svg" alt="Logo de Campus France">
@@ -356,6 +360,10 @@
                                 </div>
                             </div>
                         </div>
+
+                        <a class="carousel-info-next carousel-control-next" role="button" data-slide="prev">
+                            <img class="flecha" src="./img/flecha-der-gris.png" alt="ver siguiente">
+                        </a>
                     </div>
 
                     <div class="change-view d-flex justify-content-center align-items-center mt-3">
@@ -365,12 +373,18 @@
                 </div>
 
                 <div id="maps">
+                    <a class="carousel-map-prev carousel-control-prev d-none d-md-flex" role="button" data-slide="prev">
+                        <img class="flecha" src="./img/flecha-izq-gris.png" alt="ver otro mapa">
+                    </a>
                     <div>
                         <p class="d-block text-center" id="provinceInfo"></p>
                     </div>
                     <div id="argentineMap" style="width: 100%; height: 80vh;"></div>
                     <div id="franceMap" style="width: 100%; height: 80vh;"></div>
-    
+                    <a class="carousel-map-next carousel-control-next d-none d-md-flex" role="button" data-slide="next">
+                        <img class="flecha" src="./img/flecha-der-gris.png" alt="ver otro mapa">
+                    </a>
+
                     <div class="filter-flags-map d-flex justify-content-center mt-5">
                         <img id="argentineFlag" class="flag-filter selected mr-3" src="./img/icon-argentina.svg" alt="Filtrar por Argentina">
                         <img id="franceFlag" class="flag-filter ml-3" src="./img/icon-francia.svg" alt="Filtrar por Francia">

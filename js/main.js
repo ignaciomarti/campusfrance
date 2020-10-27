@@ -110,10 +110,25 @@ jQuery(document).ready(function () {
       $(this).addClass('selected');
       $('#argentineFlag').removeClass('selected');
    })
+   $('.carousel-map-next, .carousel-map-prev').on('click', function() {
+       if ($('#franceMap').css('display') == 'none') {
+            $('#provinceInfo').html('');
+            $('#argentineMap').hide();
+            $('#franceMap').show();
+            $('#franceFlag').addClass('selected');
+            $('#argentineFlag').removeClass('selected');
+       } else if ($('#argentineMap').css('display') == 'none') {
+            $('#provinceInfo').html('');
+            $('#franceMap').hide();
+            $('#argentineMap').show();
+            $('#argentineFlag').addClass('selected');
+            $('#franceFlag').removeClass('selected');
+       }
+   })
 
    // SELECT DE PROVINCIAS ARGENTINAS
   $.get('https://apis.datos.gob.ar/georef/api/provincias', function(data){
-      let provinces = []
+      let provinces = [];
       $.each(data.provincias, function(i,province) {
           provinces.push(province.nombre);
       })
@@ -171,4 +186,11 @@ jQuery(document).ready(function () {
         $('.individual-info-container').addClass('d-flex').show();
         $('.datatable-container').hide();
     })
+    // $('.carousel-info-prev, .carousel-info-next').on('click', function() {
+    //     if () {
+            
+    //     } else if (){
+            
+    //     }
+    // })
   });

@@ -5,45 +5,63 @@ $( window ).on('load', function() {
 
 
 jQuery(document).ready(function () {
-
     // MAPA ARGENTINA
-    jQuery('#argentineMap').vectorMap({
-      map: 'argentina_en',
-      backgroundColor: 'transparent',
-      enableZoom: false,
-      showTooltip: true,
-      color: '#1c92d0',
-      hoverColor: '#e10811',
-      selectedColor: '#e10811',
-      onRegionClick: function (element, code, region) {
-          $('#provinceInfo').html(region + ' (40)');
-        var message = 'You clicked "'
-          + region
-          + '" which has the code: '
-          + code.toUpperCase();
 
-        console.log(message); // Do Something
-      }
+    jQuery('#argentineMap').vectorMap({
+        map: 'ar_merc',
+        backgroundColor: 'transparent',
+        zoomOnScroll: false,
+        regionsSelectable: true,
+        regionsSelectableOne: true,
+        zoomButtons: false,
+        regionStyle: {
+            initial: {
+                fill: "#1c92d0",
+            },
+            hover: {
+                fill: '#e10811',
+                // cursor: 'pointer'
+            },
+            selected:{
+                fill: '#e10811'
+            }
+        },
+        regions: [{
+            scale: ['#C8EEFF', '#0071A4'],
+            normalizeFunction: 'polynomial',
+            values: 'gdpData'
+        }],
+        onRegionClick: function (a, code) {
+            let map=$('#argentineMap').vectorMap('get', 'mapObject');
+            $('#provinceInfo').html(map.getRegionName(code)+' (40)');
+        },
     });
 
     // MAPA FRANCIA
-    jQuery('#franceMap').vectorMap({
-      map: 'france_fr',
-      backgroundColor: 'transparent',
-      enableZoom: false,
-      showTooltip: true,
-      color: '#1c92d0',
-      hoverColor: '#e10811',
-      selectedColor: '#e10811',
-      onRegionClick: function (element, code, region) {
-          $('#provinceInfo').html(region + ' (40)');
-        var message = 'You clicked "'
-          + region
-          + '" which has the code: '
-          + code.toUpperCase();
 
-        console.log(message); // Do Something
-      }
+    jQuery('#franceMap').vectorMap({
+        map: 'fr_regions_2016_merc',
+        backgroundColor: 'transparent',
+        zoomOnScroll: false,
+        regionsSelectable: true,
+        regionsSelectableOne: true,
+        zoomButtons: false,
+        regionStyle: {
+            initial: {
+                fill: "#1c92d0",
+            },
+            hover: {
+                fill: '#e10811',
+                cursor: 'pointer'
+            },
+            selected:{
+                fill: '#e10811'
+            }
+        },
+        onRegionClick: function (a, code) {
+            let map=$('#franceMap').vectorMap('get', 'mapObject');
+            $('#provinceInfo').html(map.getRegionName(code)+' (40)');
+        },
     });
 
     // SELECTS FORMULARIOS
@@ -92,33 +110,42 @@ jQuery(document).ready(function () {
 
 
     // CAMBIO DE MAPA
+
+    function clearRegions(selector){
+        let map=$(selector).vectorMap('get', 'mapObject');
+        map.clearSelectedRegions(); 
+    }
     $('#argentineMap').show();
     $('#franceMap').hide();
     $('#dataTable').hide();
     $('.change-view').removeClass('d-flex').hide();
     $('#argentineFlag').on('click', function() {
-      $('#franceMap').hide();
-      $('#provinceInfo').html('');
-      $('#argentineMap').show();
-      $(this).addClass('selected');
-      $('#franceFlag').removeClass('selected');
+        $('#franceMap').hide();
+        $('#provinceInfo').html('');
+        $('#argentineMap').show();
+        $(this).addClass('selected');
+        $('#franceFlag').removeClass('selected');
+        clearRegions('#franceMap');
     })
    $('#franceFlag').on('click', function() {
-      $('#argentineMap').hide();
-      $('#provinceInfo').html('');
-      $('#franceMap').show();
-      $(this).addClass('selected');
-      $('#argentineFlag').removeClass('selected');
-   })
+        $('#argentineMap').hide();
+        $('#provinceInfo').html('');
+        $('#franceMap').show();
+        $(this).addClass('selected');
+        $('#argentineFlag').removeClass('selected');
+        clearRegions('#argentineMap');
+    })
    $('.carousel-map-next, .carousel-map-prev').on('click', function() {
        if ($('#franceMap').css('display') == 'none') {
-            $('#provinceInfo').html('');
+           $('#provinceInfo').html('');
+           clearRegions('#argentineMap');
             $('#argentineMap').hide();
             $('#franceMap').show();
             $('#franceFlag').addClass('selected');
             $('#argentineFlag').removeClass('selected');
        } else if ($('#argentineMap').css('display') == 'none') {
             $('#provinceInfo').html('');
+            clearRegions('#franceMap');
             $('#franceMap').hide();
             $('#argentineMap').show();
             $('#argentineFlag').addClass('selected');
@@ -159,6 +186,7 @@ jQuery(document).ready(function () {
         $('#maps').hide();
         $('#section-datatable').show();
         $('#dataTable').show();
+        // Do Something
         let table = $('#dataTable').DataTable({
             "searching":      false,
             "info":           false,         

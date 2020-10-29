@@ -10,7 +10,7 @@ jQuery(document).ready(function () {
     jQuery('#argentineMap').vectorMap({
         map: 'ar_merc',
         backgroundColor: 'transparent',
-        zoomOnScroll: false,
+        // zoomOnScroll: false,
         regionsSelectable: true,
         regionsSelectableOne: true,
         zoomButtons: false,
@@ -20,7 +20,7 @@ jQuery(document).ready(function () {
             },
             hover: {
                 fill: '#e10811',
-                // cursor: 'pointer'
+                cursor: 'pointer'
             },
             selected:{
                 fill: '#e10811'
@@ -34,6 +34,7 @@ jQuery(document).ready(function () {
         onRegionClick: function (a, code) {
             let map=$('#argentineMap').vectorMap('get', 'mapObject');
             $('#provinceInfo').html(map.getRegionName(code)+' (40)');
+            $('#provinceInfoButton').removeClass('d-none').attr({'href': map.getRegionName(code), 'map': 'argentine'});
         },
     });
 
@@ -42,7 +43,7 @@ jQuery(document).ready(function () {
     jQuery('#franceMap').vectorMap({
         map: 'fr_regions_2016_merc',
         backgroundColor: 'transparent',
-        zoomOnScroll: false,
+        // zoomOnScroll: false,
         regionsSelectable: true,
         regionsSelectableOne: true,
         zoomButtons: false,
@@ -61,6 +62,7 @@ jQuery(document).ready(function () {
         onRegionClick: function (a, code) {
             let map=$('#franceMap').vectorMap('get', 'mapObject');
             $('#provinceInfo').html(map.getRegionName(code)+' (40)');
+            $('#provinceInfoButton').removeClass('d-none').attr({'href': map.getRegionName(code), 'map': 'france'});
         },
     });
 
@@ -70,7 +72,7 @@ jQuery(document).ready(function () {
         allowClear: true,
         width: '100%',
     });
-    $('.argentineProvinces').select2({
+    let argentineProvinces = $('.argentineProvinces').select2({
         tags: true,
         placeholder: 'Provincia argentina',
         allowClear: true,
@@ -81,7 +83,7 @@ jQuery(document).ready(function () {
         allowClear: true,
         width: '100%',
     });
-    $('.franceRegions').select2({
+    let franceRegions = $('.franceRegions').select2({
         tags: true,
         placeholder: 'Región francesa',
         allowClear: true,
@@ -107,7 +109,6 @@ jQuery(document).ready(function () {
         allowClear: true,
         width: '100%',
     });
-
 
     // CAMBIO DE MAPA
 
@@ -179,9 +180,21 @@ jQuery(document).ready(function () {
       });
   });
 
+  $('#provinceInfoButton').on('click', function(event){
+    event.preventDefault();
+    if ($(this).attr('map') == 'argentine') {
+        argentineProvinces.val($(this).attr('href')).trigger('change'); // Cambiar esto de acuerdo a cómo está seteado en la base de datos del campusfrance para que sea más estable
+    } else {
+        franceRegions.val($(this).attr('href')).trigger('change'); // Cambiar esto de acuerdo a cómo está seteado en la base de datos del campusfrance para que sea más estable
+    }
+    showDatatables()
+  })
   // FORM ON SUBMIT
     $('.filter-form form').on('submit', function(event) {
         event.preventDefault();
+        showDatatables()
+    });
+    function showDatatables(){
         $('.change-view').addClass('d-flex').show();
         $('#maps').hide();
         $('#section-datatable').show();
@@ -196,7 +209,7 @@ jQuery(document).ready(function () {
             "paging":         false
         });
         $('.results-quantity-number').html('1/'+table.rows().count())
-    });
+    }
 
     // CHANGE VIEW
     $('.datatable-container').show();

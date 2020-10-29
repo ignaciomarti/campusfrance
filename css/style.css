@@ -220,6 +220,12 @@ span.select2-selection__rendered{
     color: var(--secondary-color);
 }
 
+#provinceInfoButton{
+    font-size: 1.5rem;
+    background-color: var(--secondary-color);
+    color: #ffffff;
+}
+
 section.map .filter-flags-map .flag-filter{
     width: 4rem;
 }

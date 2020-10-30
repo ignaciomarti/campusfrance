@@ -213,23 +213,36 @@ jQuery(document).ready(function () {
 
     // CHANGE VIEW
     $('.datatable-container').show();
-    $('.individual-info-container').removeClass('d-flex').hide();
+    $('.individual-info-container').hide();
     $('.results-quantity').hide()
     $('#view-table').on('click', function() {
         $(this).addClass('selected');
         $('#view-individual').removeClass('selected');
         $('.datatable-container').show();
-        $('.individual-info-container').removeClass('d-flex').hide();
+        $('.individual-info-container').hide();
         $('.results-quantity').hide()
     })
     $('#view-individual').on('click', function() {
         $(this).addClass('selected');
         $('#view-table').removeClass('selected');
-        $('.individual-info-container').addClass('d-flex').show();
+        $('.individual-info-container').show();
         $('.datatable-container').hide();
         $('.results-quantity').show()
     })
-    $('.carousel-info-prev').on('click', function() {
-        // Do Something
+
+    let carouselInfo = $("#infoMapCarousel").owlCarousel({
+        items: 1,
+        loop: true,
+        center: true,
+        autoplay: false,
+        autoWidth: false,
+        nav: true,
+        dots: false,
+        smartSpeed :450,
+        navText: ["<img src='../img/flecha-izq-gris.png' alt='ver anterior'>","<img src='../img/flecha-der-gris.png' alt='ver siguiente'>"],
+    });
+
+    carouselInfo.on('changed.owl.carousel', function(event) {
+        // Do something como aumentar el contador (usar event.item)
     })
   });

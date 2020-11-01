@@ -18,7 +18,7 @@ html{
 
 body{
     font-family: 'protogrotesk-light', sans-serif;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
 }
 
 h1{
@@ -209,8 +209,8 @@ span.select2-selection__rendered{
 }
 
 /************ MAP **************/
-.carousel-map-prev .flecha, .carousel-map-next .flecha, .carousel-info-prev .flecha, .carousel-info-next .flecha{
-    width: 2.5rem;
+.carousel-map-prev .flecha, .carousel-map-next .flecha{
+    width: 0.7rem;
     cursor: pointer;
 }
 

@@ -10,7 +10,7 @@ jQuery(document).ready(function () {
     jQuery('#argentineMap').vectorMap({
         map: 'ar_merc',
         backgroundColor: 'transparent',
-        // zoomOnScroll: false,
+        zoomOnScroll: false,
         regionsSelectable: true,
         regionsSelectableOne: true,
         zoomButtons: false,
@@ -43,7 +43,7 @@ jQuery(document).ready(function () {
     jQuery('#franceMap').vectorMap({
         map: 'fr_regions_2016_merc',
         backgroundColor: 'transparent',
-        // zoomOnScroll: false,
+        zoomOnScroll: false,
         regionsSelectable: true,
         regionsSelectableOne: true,
         zoomButtons: false,

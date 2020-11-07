@@ -94,6 +94,9 @@ jQuery(document).ready(function () {
         allowClear: true,
         width: '100%',
     });
+    $('.movilityType').on('select2:select', function (e) {
+        
+    });
     $('.branch').select2({
         placeholder: 'Rama',
         allowClear: true,
@@ -106,6 +109,16 @@ jQuery(document).ready(function () {
     });
     $('.program').select2({
         placeholder: 'Programa',
+        allowClear: true,
+        width: '100%',
+    });
+    $('.study_level').select2({
+        placeholder: 'Nivel de Estudio',
+        allowClear: true,
+        width: '100%',
+    });
+    $('.beneficiary').select2({
+        placeholder: 'Beneficiario',
         allowClear: true,
         width: '100%',
     });
@@ -203,7 +216,7 @@ jQuery(document).ready(function () {
         let table = $('#dataTable').DataTable({
             "searching":      false,
             "info":           false,         
-            "scrollY":        "60vh",
+            "scrollY":        "80vh",
             "scrollX":        true,
             "scrollCollapse": true,
             "paging":         false

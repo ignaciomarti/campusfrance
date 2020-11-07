@@ -2,6 +2,7 @@
 
 :root{
     --main-color: #1c92d0;
+    --header-color: #f0f0f0;
     --secondary-color: #e10811;
     --color-left-bar: #0075ff;
     --color-left-bar2: #ffffff;
@@ -75,7 +76,7 @@ a{
 }
 /********* HEADER **********/
 header{
-    background-color: var(--main-color);
+    background-color: var(--header-color);
     position: relative;
 }
 
@@ -169,16 +170,29 @@ main div.main-container{
 }
 
 /* FORM FILTER */
+.container-filters p.search-description{
+    color: #888888;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    /* width: max-content; */
+}
+
 .filter-form{
     position: relative;
     flex-shrink: 0;
+}
+
+.filter-form label.form_label{
+    color: #888888;
+    font-size: 1.5rem;
+    margin-top: .8rem;
 }
 @media (min-width: 768px){
     .filter-form::before{
         content: '';
         position: absolute;
         background-color: var(--main-color);
-        left: -5px;
+        left: -2rem;
         height: 100%;
         width: .75rem;
     }
@@ -208,6 +222,18 @@ span.select2-selection__rendered{
     border-bottom: 1px solid #88888875!important;
 }
 
+.contact-container{
+    margin-top: 5rem;
+    color: gray;
+}
+.contact-container h3{
+    font-family: 'protogrotesk-bold', sans-serif;
+}
+.contact-container p{
+    font-family: 'protogrotesk-light', sans-serif;
+    font-size: 1.6rem;
+}
+
 /************ MAP **************/
 .carousel-map-prev .flecha, .carousel-map-next .flecha{
     width: 0.7rem;
@@ -217,10 +243,12 @@ span.select2-selection__rendered{
 #provinceInfo{
     font-family: 'protogrotesk-bold';
     font-size: 1.8rem;
+    margin: 1.5rem 0 0 0;
     color: var(--secondary-color);
 }
 
 #provinceInfoButton{
+    margin-bottom: 1.5rem;
     font-size: 1.5rem;
     background-color: var(--secondary-color);
     color: #ffffff;
@@ -228,6 +256,7 @@ span.select2-selection__rendered{
 
 section.map .filter-flags-map .flag-filter{
     width: 4rem;
+    padding-bottom: 6px;
 }
 
 section.map .filter-flags-map .flag-filter:hover{
@@ -235,7 +264,7 @@ section.map .filter-flags-map .flag-filter:hover{
 }
 
 section.map .filter-flags-map .flag-filter.selected, .change-view i.selected{
-    padding-bottom: 2px;
+    /* padding-bottom: 6px; */
     border-bottom: 2px solid #888888;
 }
 
@@ -361,6 +390,6 @@ div.individual-info-container .card .card-body img{
 }
 @media (min-width: 768px){
     div.individual-info-container .card .card-header img{
-        padding: 1.5rem 0;
+        padding: 2.5rem 0;
     }
 }

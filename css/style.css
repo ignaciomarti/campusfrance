@@ -82,7 +82,8 @@ header{
 
 header img{
     width: 35%;
-    margin: .5rem 0;
+    margin: .5rem 2rem;
+    padding: 3rem 0;
 }
 
 /* BARRAS */
@@ -129,7 +130,7 @@ header img{
         position: absolute;
         top: -10rem;
         left: 0rem;
-        height: 40rem;
+        height: 38rem;
         width: 7rem;
         transform: rotate(-20deg);
         z-index: 10;
@@ -164,6 +165,9 @@ main div.main-container{
     margin-top: 8rem;
 }
 
+.container-title{
+    padding-left: 15px;
+}
 .container-title p{
     font-size: 1.5rem;
     color: #888888;
@@ -174,7 +178,7 @@ main div.main-container{
     color: #888888;
     font-size: 1.5rem;
     margin-bottom: 2rem;
-    /* width: max-content; */
+    padding-left: 15px;
 }
 
 .filter-form{
@@ -185,7 +189,7 @@ main div.main-container{
 .filter-form label.form_label{
     color: #888888;
     font-size: 1.5rem;
-    margin-top: .8rem;
+    margin-top: .5rem;
 }
 @media (min-width: 768px){
     .filter-form::before{
@@ -225,6 +229,7 @@ span.select2-selection__rendered{
 .contact-container{
     margin-top: 5rem;
     color: gray;
+    padding-left: 15px;
 }
 .contact-container h3{
     font-family: 'protogrotesk-bold', sans-serif;

@@ -78,7 +78,7 @@ jQuery(document).ready(function () {
         allowClear: true,
         width: '100%',
     });
-    $('.frenceInstitutions').select2({
+    $('.franceInstitutions').select2({
         placeholder: 'Institución francesa',
         allowClear: true,
         width: '100%',
@@ -93,9 +93,6 @@ jQuery(document).ready(function () {
         placeholder: 'Tipo de Movilidad',
         allowClear: true,
         width: '100%',
-    });
-    $('.movilityType').on('select2:select', function (e) {
-        
     });
     $('.branch').select2({
         placeholder: 'Rama',
@@ -123,11 +120,19 @@ jQuery(document).ready(function () {
         width: '100%',
     });
 
+    $('.movilityType, .branch, .discipline, .program, .study_level, .beneficiary, .argentineInstitutions, .argentineProvinces, .franceInstitutions, .franceRegions').on('select2:select', function (e) {
+        $('label[for="'+$(this).attr('name')+'"]').removeClass('d-none');
+    });
+    $('.movilityType, .branch, .discipline, .program, .study_level, .beneficiary, .argentineInstitutions, .argentineProvinces, .franceInstitutions, .franceRegions').on('select2:unselect', function (e) {
+        $('label[for="'+$(this).attr('name')+'"]').addClass('d-none');
+    });
+
     // CAMBIO DE MAPA
 
     function clearRegions(selector){
         let map=$(selector).vectorMap('get', 'mapObject');
         map.clearSelectedRegions(); 
+        $('#provinceInfoButton').addClass('d-none');
     }
     $('#argentineMap').show();
     $('#franceMap').hide();

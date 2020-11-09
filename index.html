@@ -18,11 +18,11 @@
 
 <title>CampusFrance</title>
 
-<link rel="icon" href="./img/logo-campus.svg">
+<link rel="icon" href="./img/campus-logo.png">
 </head>
 <body>
 <div class="se-pre-con">
-    <img src="./img/logo-campus.svg" alt="">
+    <img src="./img/logo-campus.svg">
 </div>
 <header>
     <div class="left-bar"></div>
@@ -47,36 +47,48 @@
                 <p class="search-description">Realiza la búsqueda de convenios e intercambios con los filtros o con los mapas</p>
                 <section class="filter-form align-self-baseline col-12">
                     <form action="#" method="get">
-                        <div class="form-group d-flex mb-5">
-                            <img src="./img/icon-argentina.svg" class="flag">
-                            <select class="argentineInstitutions" name="argentineInstitutions">
-                                <option></option>
-                                <option value="BA">Buenos Aires</option>
-                                <option value="sfe">Santa Fé</option>
-                            </select>
+                        <div>
+                            <label for="argentineInstitutions" class="d-none form_label">Institución Argentina</label>
+                            <div class="form-group d-flex mb-5">
+                                <img src="./img/icon-argentina.svg" class="flag">
+                                <select class="argentineInstitutions" name="argentineInstitutions">
+                                    <option></option>
+                                    <option value="BA">Buenos Aires</option>
+                                    <option value="sfe">Santa Fé</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="form-group d-flex mb-5">
-                            <img src="./img/icon-argentina.svg" class="flag">
-                            <select class="argentineProvinces" name="argentineProvinces">
-                                <option></option>
-                            </select>
+                        <div>
+                            <label for="argentineProvinces" class="d-none form_label">Provincia Argentina</label>
+                            <div class="form-group d-flex mb-5">
+                                <img src="./img/icon-argentina.svg" class="flag">
+                                <select class="argentineProvinces" name="argentineProvinces">
+                                    <option></option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="form-group d-flex mb-5">
-                            <img src="./img/icon-francia.svg" class="flag">
-                            <select class="frenceInstitutions" name="frenceInstitutions">
-                                <option></option>
-                                <option value="BA">Buenos Aires</option>
-                                <option value="sfe">Santa Fé</option>
-                            </select>
+                        <div>
+                            <label for="franceInstitutions" class="d-none form_label">Institución Francesa</label>
+                            <div class="form-group d-flex mb-5">
+                                <img src="./img/icon-francia.svg" class="flag">
+                                <select class="franceInstitutions" name="franceInstitutions">
+                                    <option></option>
+                                    <option value="BA">Buenos Aires</option>
+                                    <option value="sfe">Santa Fé</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="form-group d-flex mb-5">
-                            <img src="./img/icon-francia.svg" class="flag">
-                            <select class="franceRegions" name="franceRegions">
-                                <option></option>
-                            </select>
+                        <div>
+                            <label for="franceRegions" class="d-none form_label">Región Francesa</label>
+                            <div class="form-group d-flex mb-5">
+                                <img src="./img/icon-francia.svg" class="flag">
+                                <select class="franceRegions" name="franceRegions">
+                                    <option></option>
+                                </select>
+                            </div>
                         </div>
                         <div class="form-group mb-5">
-                            <label for="movilityType" class="d-none form_label">Movilidad</label>
+                            <label for="movilityType" class="d-none form_label">Tipo de Movilidad</label>
                             <select class="movilityType" name="movilityType">
                                 <option></option>
                                 <option value="1">Letras e Idiomas</option>
@@ -98,7 +110,7 @@
                             </select>
                         </div>
                         <div class="form-group mb-5">
-                            <label for="disciplina" class="d-none form_label">Disciplina</label>
+                            <label for="discipline" class="d-none form_label">Disciplina</label>
                             <select class="discipline" name="discipline">
                                 <option></option>
                                 <option value="1">Letras e Idiomas</option>
@@ -481,8 +493,14 @@
 
                 <div id="maps">
                     <div class="filter-flags-map d-flex justify-content-center">
+                        <a class="carousel-map-prev mr-5" role="button" data-slide="prev">
+                            <img class="flecha" src="./img/flecha-izq-gris.png" alt="ver otro mapa">
+                        </a>
                         <img id="argentineFlag" class="flag-filter selected mr-3" src="./img/icon-argentina.svg" alt="Filtrar por Argentina">
                         <img id="franceFlag" class="flag-filter ml-3" src="./img/icon-francia.svg" alt="Filtrar por Francia">
+                        <a class="carousel-map-next ml-5" role="button" data-slide="next">
+                            <img class="flecha" src="./img/flecha-der-gris.png" alt="ver otro mapa">
+                        </a>
                     </div>
                     <div class='province-info-container d-flex flex-column align-items-center'>
                         <p class="d-block text-center" id="provinceInfo"></p>
@@ -490,14 +508,6 @@
                     </div>
                     <div id="argentineMap" style="width: 100%; height: 90vh;"></div>
                     <div id="franceMap" style="width: 100%; height: 90vh;"></div>
-                    <div class="flechas-container d-flex justify-content-center mt-4">
-                        <a class="carousel-map-prev mr-5" role="button" data-slide="prev">
-                            <img class="flecha" src="./img/flecha-izq-gris.png" alt="ver otro mapa">
-                        </a>
-                        <a class="carousel-map-next ml-5" role="button" data-slide="next">
-                            <img class="flecha" src="./img/flecha-der-gris.png" alt="ver otro mapa">
-                        </a>
-                    </div>
                 </div>
             </section>
         </div>

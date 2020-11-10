@@ -257,7 +257,7 @@ jQuery(document).ready(function () {
         nav: true,
         dots: false,
         smartSpeed :450,
-        navText: ["<img src='/../img/flecha-izq-gris.png' alt='ver anterior'>","<img src='/../img/flecha-der-gris.png' alt='ver siguiente'>"],
+        navText: ["<img src='./img/flecha-izq-gris.png' alt='ver anterior'>","<img src='./img/flecha-der-gris.png' alt='ver siguiente'>"],
     });
 
     carouselInfo.on('changed.owl.carousel', function(event) {

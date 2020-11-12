@@ -5,66 +5,71 @@ $( window ).on('load', function() {
 
 
 jQuery(document).ready(function () {
+    generateArgentineMap();
     // MAPA ARGENTINA
 
-    jQuery('#argentineMap').vectorMap({
-        map: 'ar_merc',
-        backgroundColor: 'transparent',
-        zoomOnScroll: false,
-        regionsSelectable: true,
-        regionsSelectableOne: true,
-        zoomButtons: false,
-        regionStyle: {
-            initial: {
-                fill: "#1c92d0",
+    function generateArgentineMap(){
+        jQuery('#argentineMap').vectorMap({
+            map: 'ar_merc',
+            backgroundColor: 'transparent',
+            zoomOnScroll: false,
+            regionsSelectable: true,
+            regionsSelectableOne: true,
+            zoomButtons: false,
+            regionStyle: {
+                initial: {
+                    fill: "#1c92d0",
+                },
+                hover: {
+                    fill: '#e10811',
+                    cursor: 'pointer'
+                },
+                selected:{
+                    fill: '#e10811'
+                }
             },
-            hover: {
-                fill: '#e10811',
-                cursor: 'pointer'
+            regions: [{
+                scale: ['#C8EEFF', '#0071A4'],
+                normalizeFunction: 'polynomial',
+                values: 'gdpData'
+            }],
+            onRegionClick: function (a, code) {
+                let map=$('#argentineMap').vectorMap('get', 'mapObject');
+                $('#provinceInfo').html(map.getRegionName(code)+' (40)');
+                $('#provinceInfoButton').removeClass('d-none').attr({'href': map.getRegionName(code), 'map': 'argentine'});
             },
-            selected:{
-                fill: '#e10811'
-            }
-        },
-        regions: [{
-            scale: ['#C8EEFF', '#0071A4'],
-            normalizeFunction: 'polynomial',
-            values: 'gdpData'
-        }],
-        onRegionClick: function (a, code) {
-            let map=$('#argentineMap').vectorMap('get', 'mapObject');
-            $('#provinceInfo').html(map.getRegionName(code)+' (40)');
-            $('#provinceInfoButton').removeClass('d-none').attr({'href': map.getRegionName(code), 'map': 'argentine'});
-        },
-    });
+        });
+    }
 
     // MAPA FRANCIA
 
-    jQuery('#franceMap').vectorMap({
-        map: 'fr_regions_2016_merc',
-        backgroundColor: 'transparent',
-        zoomOnScroll: false,
-        regionsSelectable: true,
-        regionsSelectableOne: true,
-        zoomButtons: false,
-        regionStyle: {
-            initial: {
-                fill: "#1c92d0",
+    function generateFranceMap(){
+        jQuery('#franceMap').vectorMap({
+            map: 'fr_regions_2016_merc',
+            backgroundColor: 'transparent',
+            zoomOnScroll: false,
+            regionsSelectable: true,
+            regionsSelectableOne: true,
+            zoomButtons: false,
+            regionStyle: {
+                initial: {
+                    fill: "#1c92d0",
+                },
+                hover: {
+                    fill: '#e10811',
+                    cursor: 'pointer'
+                },
+                selected:{
+                    fill: '#e10811'
+                }
             },
-            hover: {
-                fill: '#e10811',
-                cursor: 'pointer'
+            onRegionClick: function (a, code) {
+                let map=$('#franceMap').vectorMap('get', 'mapObject');
+                $('#provinceInfo').html(map.getRegionName(code)+' (40)');
+                $('#provinceInfoButton').removeClass('d-none').attr({'href': map.getRegionName(code), 'map': 'france'});
             },
-            selected:{
-                fill: '#e10811'
-            }
-        },
-        onRegionClick: function (a, code) {
-            let map=$('#franceMap').vectorMap('get', 'mapObject');
-            $('#provinceInfo').html(map.getRegionName(code)+' (40)');
-            $('#provinceInfoButton').removeClass('d-none').attr({'href': map.getRegionName(code), 'map': 'france'});
-        },
-    });
+        });
+    }
 
     // SELECTS FORMULARIOS
     $('.argentineInstitutions').select2({
@@ -138,35 +143,49 @@ jQuery(document).ready(function () {
     $('#franceMap').hide();
     $('#dataTable').hide();
     $('.change-view').removeClass('d-flex').hide();
-    $('#argentineFlag').on('click', function() {
-        $('#franceMap').hide();
-        $('#provinceInfo').html('');
-        $('#argentineMap').show();
-        $(this).addClass('selected');
-        $('#franceFlag').removeClass('selected');
-        clearRegions('#franceMap');
+    $('#argentineFlag').on('click', function(e) {
+        if($(this).hasClass('selected')){
+            e.preventDefault()
+        } else{
+            $('#franceMap').hide();
+            $('#franceMap').html('');
+            $('#provinceInfo').html('');
+            $('#argentineMap').show();
+            generateArgentineMap();
+            $(this).addClass('selected');
+            $('#franceFlag').removeClass('selected');
+            clearRegions('#franceMap');
+        }
     })
-   $('#franceFlag').on('click', function() {
-        $('#argentineMap').hide();
-        $('#provinceInfo').html('');
-        $('#franceMap').show();
-        $(this).addClass('selected');
-        $('#argentineFlag').removeClass('selected');
-        clearRegions('#argentineMap');
+   $('#franceFlag').on('click', function(e) {
+       if($(this).hasClass('selected')){
+           e.preventDefault()
+       } else{
+           $('#argentineMap').hide();
+           $('#provinceInfo').html('');
+           $('#argentineMap').html('');
+           $('#franceMap').show();
+           generateFranceMap();
+           $(this).addClass('selected');
+           $('#argentineFlag').removeClass('selected');
+           clearRegions('#argentineMap');
+       }
     })
    $('.carousel-map-next, .carousel-map-prev').on('click', function() {
-       if ($('#franceMap').css('display') == 'none') {
+       if ($('#franceMap').css('display') == 'none' && !$('#franceFlag').hasClass('selected')) {
            $('#provinceInfo').html('');
            clearRegions('#argentineMap');
-            $('#argentineMap').hide();
+            $('#argentineMap').hide().html('');
             $('#franceMap').show();
+            generateFranceMap();
             $('#franceFlag').addClass('selected');
             $('#argentineFlag').removeClass('selected');
-       } else if ($('#argentineMap').css('display') == 'none') {
+       } else if ($('#argentineMap').css('display') == 'none' && !$('#argentineFlag').hasClass('selected')) {
             $('#provinceInfo').html('');
             clearRegions('#franceMap');
-            $('#franceMap').hide();
+            $('#franceMap').hide().html('');
             $('#argentineMap').show();
+            generateArgentineMap();
             $('#argentineFlag').addClass('selected');
             $('#franceFlag').removeClass('selected');
        }

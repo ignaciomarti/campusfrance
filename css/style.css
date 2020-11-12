@@ -274,7 +274,23 @@ section.map .filter-flags-map .flag-filter.selected, .change-view i.selected{
 }
 
 #maps{
-    height: 80vh;
+    height: auto;
+}
+#argentineMap{
+    height: 60vh;
+    width: 100%;
+}
+#franceMap{
+    height: 40vh;
+    width: 100%;
+}
+@media (min-width: 768px){
+    #maps{
+        height: 80vh;
+    }
+    #argentineMap, #franceMap{
+        height: 80vh;
+    }
 }
 
 /************ FOOTER ************/

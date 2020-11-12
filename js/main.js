@@ -150,6 +150,7 @@ jQuery(document).ready(function () {
             $('#franceMap').hide();
             $('#franceMap').html('');
             $('#provinceInfo').html('');
+            $('#provinceInfoButton').addClass('d-none');
             $('#argentineMap').show();
             generateArgentineMap();
             $(this).addClass('selected');
@@ -163,6 +164,7 @@ jQuery(document).ready(function () {
        } else{
            $('#argentineMap').hide();
            $('#provinceInfo').html('');
+           $('#provinceInfoButton').addClass('d-none');
            $('#argentineMap').html('');
            $('#franceMap').show();
            generateFranceMap();
@@ -174,6 +176,7 @@ jQuery(document).ready(function () {
    $('.carousel-map-next, .carousel-map-prev').on('click', function() {
        if ($('#franceMap').css('display') == 'none' && !$('#franceFlag').hasClass('selected')) {
            $('#provinceInfo').html('');
+           $('#provinceInfoButton').addClass('d-none');
            clearRegions('#argentineMap');
             $('#argentineMap').hide().html('');
             $('#franceMap').show();
@@ -182,6 +185,7 @@ jQuery(document).ready(function () {
             $('#argentineFlag').removeClass('selected');
        } else if ($('#argentineMap').css('display') == 'none' && !$('#argentineFlag').hasClass('selected')) {
             $('#provinceInfo').html('');
+            $('#provinceInfoButton').addClass('d-none');
             clearRegions('#franceMap');
             $('#franceMap').hide().html('');
             $('#argentineMap').show();

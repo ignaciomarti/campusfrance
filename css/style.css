@@ -289,9 +289,9 @@ div.jvectormap-container, div.jvectormap-container>svg{
     max-height: 100%;
     max-width: 100%;
 }
-div.container-filters, .map{
+/* div.container-filters, .map{
     max-width: 100%;
-}
+} */
 @media (min-width: 768px){
     #maps{
         height: 80vh;

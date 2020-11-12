@@ -289,9 +289,7 @@ div.jvectormap-container, div.jvectormap-container>svg{
     max-height: 100%;
     max-width: 100%;
 }
-/* div.container-filters, .map{
-    max-width: 100%;
-} */
+
 @media (min-width: 768px){
     #maps{
         height: 80vh;
@@ -387,7 +385,7 @@ div.individual-info-container #infoMapCarousel .owl-prev img, div.individual-inf
 }
 
 div.individual-info-container .card{
-    width: 60%;
+    width: 90%;
     margin: 0 auto;
 }
 div.individual-info-container .card .card-header{
@@ -396,6 +394,9 @@ div.individual-info-container .card .card-header{
     justify-content: center;
 }
 @media (min-width: 768px){
+    div.individual-info-container .card{
+        width: 60%;
+    }
     div.individual-info-container{
         margin-top: 0;
     }

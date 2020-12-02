@@ -81,9 +81,11 @@ header{
 }
 
 header img{
-    width: 35%;
-    margin: .5rem 2rem;
+    margin: .5rem 5rem;
     padding: 3rem 0;
+}
+header img:first-child{
+    width: 30%;
 }
 
 /* BARRAS */

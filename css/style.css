@@ -81,11 +81,20 @@ header{
 }
 
 header img{
-    margin: .5rem 5rem;
+    margin: .5rem 2rem;
     padding: 3rem 0;
+    height: 15vh;
 }
-header img:first-child{
-    width: 30%;
+
+@media (min-width: 768px){
+    header img:first-child{
+        width: 30%;
+    }
+
+    header img {
+        height: unset;
+        margin: .5rem 4rem;
+    }
 }
 
 /* BARRAS */
